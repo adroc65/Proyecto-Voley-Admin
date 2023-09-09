@@ -10,8 +10,6 @@ import TablaPuntos from './Tabla.vue'
 import TablaCss from './TablaCss.vue'
 import IndicadorSets from './IndicadorSets.vue'
 
-
-
 const marcadorCasa = reactive({
     nombre: 'Casa',
     color: 'primary',
@@ -30,7 +28,53 @@ const marcadorVisita = reactive({
     timeOuts: '2',
     cambios: '1',
 })
+const controlSets = reactive({
+    total: '5',
+    jugando: '3',
+    finPartido: false,
+})
+const sets = ref([
+    {
+        name: 'Set #1',
+        estado: 'completado',
+        mCasa: '25',
+        mVisita: '18'
+    },
+    {
+        name: 'Set #2',
+        estado: 'completado',
+        mCasa: '15',
+        mVisita: '25'
+    },
+    {
+        name: 'Set #3',
+        estado: 'jugando',
+        mCasa: 'x',
+        mVisita: 'x'
+    },
+    {
+        name: 'Set #4',
+        estado: 'pendiente',
+        mCasa: 'x',
+        mVisita: 'x'
+    },
+    {
+        name: 'Set #5',
+        estado: 'pendiente',
+        mCasa: 'x',
+        mVisita: 'x'
+    },
+])
 
+
+const marcador = () => {
+    
+    console.log(controlSets.jugando)
+    const estado = `controlSets.${controlSets.jugando}`
+    
+    
+}
+marcador()
 
 </script>
 
@@ -87,7 +131,10 @@ const marcadorVisita = reactive({
                 <div class="grid justify-items-center row-span-2">
                     <div class="font-bold text-xl uppercase">Control de Sets</div>
                     <div class="">
-                        <IndicadorSets />
+                        <IndicadorSets 
+                            :controlSets = "controlSets"
+                            :sets = "sets"
+                        />
                     </div>    
                 </div>
                 <div  class="grid justify-items-center lg:row-span-2">
@@ -96,7 +143,7 @@ const marcadorVisita = reactive({
                 <div  class="grid justify-items-center lg:row-span-2">
                     <Marcador :marcador = "marcadorVisita" />
                 </div>
-                <div class="grid justify-items-center content-center md:col-span-2" id="div1">
+                <div class="grid justify-items-center content-center md:col-span-3" id="div1">
                     <TablaCss /> 
                 </div>
             </div>

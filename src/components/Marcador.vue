@@ -5,40 +5,50 @@
             required: true
         },
     })
+
+    const headers = ['T.O','CHG','SAQ','ROT']
+
 </script>
 
 <template>
     <div
         :class="marcador.color"
-        class="block w-40 max-w-[12rem] rounded-lg border border-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-600">
-        <div
-            class="border-b-2 border-[#0000002d] p-1 text-neutral-600 uppercase font-bold">
-            {{ marcador.nombre }}:
-        </div>
-        <div class="p-1 text-center">
-            <h5 class="border-b-2 border-[#0000002d] p-1 text-3xl font-bold font-mono">
-                <span>{{ marcador.cantidadPtos }}</span>
-            </h5>
-        </div>
-        <div class="flex justify-center">
+        class="grid w-full rounded-lg border border-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        <h3 class="border-b-2 border-[#0000002d] pl-1 text-neutral-600 uppercase font-bold">
+            Marcador {{ marcador.nombre }}:
+        </h3>
+        
+        <h5 class="py-3 border-b-2 border-[#0000002d] text-center text-5xl font-bold font-mono">
+            {{ marcador.cantidadPtos }}
+        </h5>
+        
+        <div class="grid content-end p-2">
             <table>
-            <thead>
-                <tr class="solid">
-                    <th scope="col">T.O</th>
-                    <th scope="col">CHG</th>
-                    <th scope="col">SQ</th>
-                    <th scope="col">RT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ marcador.timeOuts }}</td>
-                    <td>{{ marcador.cambios }}</td>
-                    <td><p :class="marcador.saque">{{ marcador.saque }}</p></td>
-                    <td>{{ marcador.rotacion }}</td>
-                </tr>
-            </tbody>
-        </table>
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ headers[0] }}</th>
+                        <td>{{ marcador.timeOuts }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{{ headers[1] }}</th>
+                        <td>{{ marcador.cambios }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{{ headers[2] }}</th>
+                        <td><p :class="marcador.saque">{{ marcador.saque }}</p></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{{ headers[3] }}</th>
+                        <td>{{ marcador.rotacion }}</td>
+                    </tr>    
+                </tbody>
+            </table>
         </div>
     </div>
 </template>
@@ -62,12 +72,12 @@
     color: #b30021;
 }
 p{
-    padding: 3px 5px;
-    border-radius: 10px;
+    padding: 2px 2px;
+    border-radius: 15px;
 }
 
 table {
-    font-size: small;
+    font-size: medium;
     table-layout: fixed;
     border-collapse: collapse;
     
@@ -80,11 +90,13 @@ table thead tr{
 table tr{
     border: 1px #909090 solid;
 }
+tbody tr th{
+    font-weight: bold;
+}
 table td,th{
     padding: 1px 6px 1px 6px;
     text-align: center;
-    font-weight: normal;
-    border: 1px #909090 dotted;
+    border: 1px #909090 solid;
 }
 
 </style>
