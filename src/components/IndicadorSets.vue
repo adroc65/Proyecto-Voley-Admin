@@ -37,14 +37,20 @@ h5{
     text-decoration: underline black;
     
 }
+p{
+    padding: .2rem .2rem;
+    margin-bottom: .2rem;
+    border-radius: 1rem;
+    text-align: center;
+}
 .jugado{
-    color: blue;
+    background-color: #86e49d;
 }
 .jugando{
-    color: red;
+    background-color: #d893a3;
 }
 .pendiente{
-    color: gray;
+    background-color: #ebc474;
 }
 
 </style>
