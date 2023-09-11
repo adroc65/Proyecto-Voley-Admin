@@ -128,22 +128,21 @@ marcador()
         <!--Card 3-->
         <div class="p-2 md:col-span-2 lg:col-span-3 rounded-md bg-gray-300 overflow-hidden shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-rows-3 gap-2">
-                <div class="grid justify-items-center row-span-2">
+                <div class="grid justify-items-center  content-center row-span-2">
                     <div class="font-bold text-xl uppercase">Control de Sets</div>
-                    <div class="">
-                        <IndicadorSets 
-                            :controlSets = "controlSets"
-                            :sets = "sets"
-                        />
-                    </div>    
+                    <IndicadorSets 
+                        :controlSets = "controlSets"
+                        :sets = "sets"
+                    />
+                       
                 </div>
-                <div  class="grid justify-items-center lg:row-span-2">
+                <div  class="grid justify-items-center md:col-span-2 lg:col-span-1 lg:row-span-2">
                     <Marcador :marcador = "marcadorCasa" />
                 </div>
-                <div  class="grid justify-items-center lg:row-span-2">
+                <div  class="grid justify-items-center md:col-span-2 lg:col-span-1 lg:row-span-2">
                     <Marcador :marcador = "marcadorVisita" />
                 </div>
-                <div class="grid justify-items-center content-center md:col-span-3" id="div1">
+                <div class="grid justify-items-center content-center md:col-span-3 " id="div1">
                     <TablaCss /> 
                 </div>
             </div>
